@@ -1,0 +1,30 @@
+body {
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: repeating-radial-gradient(circle,
+        #ccc,
+        #ccc 10px,
+        #eee 10px,
+        #eee 20px);
+  }
+
+  &::after {
+    transition: 1s;
+
+    background-image: repeating-linear-gradient(135deg,
+        #ccc,
+        #ccc 10px,
+        #eee 10px,
+        #eee 20px);
+  }
+
+  &:has(#toggler:checked)::after {
+    opacity: 0;
+  }
+}
